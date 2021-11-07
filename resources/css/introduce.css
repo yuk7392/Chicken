@@ -1,0 +1,105 @@
+header{
+ 	display:flex;
+	justify-content: center;
+}
+
+/* = = = = = 타이틀 = = = = =*/
+#page_title{
+    margin: 0 auto;
+    width: 100%;
+ 	text-align: center;
+}
+
+#page_title h1{
+	margin:0 0 0 0;
+}
+
+#page_title span{
+    align:center;
+	display:inline-block;
+	text-align:center;
+	background-color:transparent;
+	color:black;
+	font-size:60px;
+	border-radius:1.5px;
+}
+
+.title_menu{
+	display:inline-block;
+	align:center;
+	text-align:left;
+	margin: 0;
+	width:850px;
+	height:10px;
+}
+.title_menu a{
+	font-size:12px;
+}
+
+.title_menu a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+#introduce span{
+	color:black;
+	background-color:transparent;
+}
+
+/* = = = = = 외부박스 = = = = =  소개글 하나 틀 잡기*/
+.introduce_box1{
+	width:830px;
+	height:250px;
+	margin:  0 0 50px 0;
+	position:relative;
+}
+
+/* = = = = = 내용박스 = = = = =  글제목, 내용 들어갈 블럭*/
+.introduce_box2{
+	width:550px;
+	height:250px;
+	display:inline-block;
+}
+
+/* = = = = = 내부2_사진 = = = = = 사진용 span 클래스. picture2는 우측 정렬용*/
+.introduce_picture{
+	display:inline-block;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.introduce_picture2{
+	display:inline-block;
+	position:absolute;
+	left:0;
+	top:0;
+}
+#introduce img{
+	width:250px;
+	height:250px;
+	object-fit:cover;
+	border-radius:15%;
+}
+
+/* = = = = = 제목 = = = = = */
+.introduce_titles{
+	width:550px;
+	font-size:30px;
+	padding-bottom:10px;
+	display:inline-block;
+}
+
+/* 공백용 클래스*/
+.introduce_test{
+	width:30px;
+}
+
+/* = = = = = 내용 = = = = = */
+.introduce_contents{
+	width:550px;
+	height:192px;
+	overflow:hidden;
+	font-size:13px;
+	display:inline-block;
+}
+

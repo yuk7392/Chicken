@@ -1,0 +1,66 @@
+.div1{
+	width:380px;
+	height:452px;
+	position:absolute;
+	top:0;
+	left:0;
+	margin:0;
+}
+.div2{
+	width:380px;
+	height:113px;
+	position:absolute;
+}
+.div3{
+	width:360px;
+	height:113px;
+	position:absolute;
+	left:10px;
+}
+.div4{
+	width:150px;
+	height:93px;
+	position:absolute;
+	top:10px;
+}
+.div4 img{
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+	max-width:150px;
+	max-height:93px;
+	border-radius:10%;
+}
+.div5{
+	width:210px;
+	height:93px;
+	position:absolute;
+	top:10px;
+	left:150px;
+}
+.div6{
+	width:210px;
+	height:93px;
+	position:absolute;
+}
+.menucontent{
+	width:130px;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    font-size:20px;
+}
+.div6 p{
+	margin: 0;
+}
+.rankLabel{
+	max-height:93px;
+	position:absolute;
+	top:0; left:0;
+    font-size: 50px;
+	height: 93px;
+	padding-top:11px;
+	margin-left:18px;
+}
