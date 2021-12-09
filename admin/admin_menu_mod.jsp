@@ -103,7 +103,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
 <form action="/Chicken/deleteBoard.do?id=<%=id%>&type=<%=type %>" method="post">
  <input type="submit" style="float: center;" value="삭제하기"><br>
 </form>
-	 <a href="admin_menu.jsp"><input type="button" value="돌아가기"></a>
+	 <a href="admin_menu_event.jsp"><input type="button" value="돌아가기"></a>
 	
 </body>
 </html>

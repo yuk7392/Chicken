@@ -60,7 +60,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
   
   <tr>
     <th scope="row">상품코드</th>
-    <td><input type="text" id="id" name="id" value="<%=id%>"/></td>
+    <td><input type="text" id="id" name="id" value="<%=id%>" disabled/></td>
     </tr>
   <tr>
     <th scope="row">제품명</th>

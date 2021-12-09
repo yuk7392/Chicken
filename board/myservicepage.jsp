@@ -70,13 +70,10 @@ span {
 
 				<% 
  	ArrayList<noticeTextVo> listOfNotice = (ArrayList<noticeTextVo>)session.getAttribute("listOfNotice"); 
-		noticeTextVo noticeText1 = listOfNotice.get(0); // 현재 공지의 마지막 번호
-		noticeTextVo noticeText2 = listOfNotice.get(listOfNotice.size()-1); // 현재 공지의 첫번쨰 번호
-		int newNum = noticeText1.getNumber();
-		int oldNum = noticeText2.getNumber();
 		int fullSize = (int)session.getAttribute("fullSize");
+		int checkSize = (int)session.getAttribute("checkSize");
         //반복문을 통한 공지글 받아오기
-		for (int i = 0; i < fullSize; i++) {
+			for (int i = 0; i < fullSize; i++) {
 		noticeTextVo noticeText = listOfNotice.get(i);  
 		%>
 				<tr>

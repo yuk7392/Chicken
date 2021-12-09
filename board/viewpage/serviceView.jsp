@@ -56,7 +56,7 @@ boardDto sDto = (boardDto)session.getAttribute("readDto");
 	<hr style="margin-top:5px; margin-bottom:15px; width:820px">
 				
 			<%if(!sDto.getFileurl().equals("")) {%>
-				<img style="max-width:810px;" src="/Chicken/images_review/<%=sDto.getFileurl()%>"><p/>
+				<img style="max-width:810px;" src="/Chicken/images_service/<%=sDto.getFileurl()%>"><p/>
 			<%}%>
 			
 			<div class="col-sm-12" style="white-space:pre-line; width:830px; margin-bottom:30px;"><%=sDto.getContent() %></div>

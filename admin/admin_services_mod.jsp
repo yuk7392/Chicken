@@ -39,7 +39,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
     
   String no,title,writer,date,content,status,file;
  
-  no = mDao.getServiceInfo(id, "mo");
+  no = mDao.getServiceInfo(id, "no");
   title = mDao.getServiceInfo(id, "title");
   writer = mDao.getServiceInfo(id, "writer");
   date = mDao.getServiceInfo(id, "date");

@@ -49,11 +49,7 @@ span {
 		<h1>
 			<span>Order List</span>
 		</h1>
-		<div style="margin: 0 auto; width: 100%; height: 10px;">
-			<div class="title_menu">
-				<a href="">공지사항</a> <a href="">회사소개</a> <a href="">제휴</a>
-			</div>
-		</div>
+		
 		<span style="width: 850px; height: 3px; background-color: gray;"></span>
 	</div>
 	<br>
@@ -74,9 +70,11 @@ span {
 				<%
 					ArrayList<orderDto> listOforder = (ArrayList<orderDto>) session.getAttribute("listOforder");
 					int fullSize = (int)session.getAttribute("fullSize");
+					int checkSize = (int)session.getAttribute("checkSize");
 						//반복문을 통한 공지글 받아오기
-						for (int i = fullSize-10; i < fullSize; i++) {
-							orderDto orderlist = listOforder.get(i); 
+						for (int i = fullSize-checkSize; i < fullSize; i++) {
+							orderDto orderlist = listOforder.get(i);
+							
 				%> 
 				<tr>
 				<td><a href="/Chicken/postRead.do?board_no=<%=orderlist.getOrderNumber()%>&board=<%="ordertbl"%>"><%=orderlist.getOrderNumber()%></td>

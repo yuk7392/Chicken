@@ -34,13 +34,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
 	<h1>
 		<span>Introduce</span>
 	</h1>
-	<div style="margin:0 auto; width:100%; height:10px;">
-		<div class="title_menu">
-			<a href="">공지사항</a>
-			<a href="">회사소개</a>
-			<a href="">제휴</a>
-		</div>
-	</div>
+	
 	<span style="width:850px; height:3px; background-color:gray;"></span>
 	</div>
 	<br>

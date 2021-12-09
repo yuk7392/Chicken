@@ -23,6 +23,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
   
  <a href="/Chicken/list.do?boardName=<%="notice"%>" class="w3-bar-item w3-button">공지사항</a>
   <a href="/Chicken/board/Introduce.jsp" class="w3-bar-item w3-button" >회사소개</a>
+  <a href="/Chicken/board/polyMap.jsp" class="w3-bar-item w3-button" >매장소개</a>
  
         </ul>   
   </li>
@@ -60,7 +61,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
    <ul class="w3-dropdown-content w3-bar-block w3-card-4">
             <a href="/Chicken/list.do?boardName=<%="service"%>" class="w3-bar-item w3-button">문의 사항</a>
             <%if((String)session.getAttribute("idKey") != null) {%>
-            	<a href="/Chicken/list.do?boardName=<%="service"%>&myService=<%="true"%>" class="w3-bar-item w3-button">내 문의 보기</a>
+            	<a href="/Chicken/myService.do" class="w3-bar-item w3-button">내 문의 보기</a>
             <%} %>
         </ul></li>
     </div>
@@ -84,7 +85,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
         %>
         <a href="/Chicken/admin/admin_main.jsp"><img src="/Chicken/images/adminpage.png" style="width: 30%" align="right"; /></a>
         <%} %>
-        <a href="/Chicken/mypage.do?mypage_id=<%=mem_id%>"><img src="/Chicken/images/mypg.png" style="width: 30%" align="right"; /></a>
+        <a href="/Chicken/mypage.do?mypage_id=<%=mem_id%>"><img src="/Chicken/images/mypg.png" style="max-height: 250px ;width: 30%" align="right"; /></a>
         <% } %>
         
         </nav>
