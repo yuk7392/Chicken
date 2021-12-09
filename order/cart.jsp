@@ -83,7 +83,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
 			<table width="100%">
 				<tr>
 					<!-- <td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>" class="btn btn-danger">삭제하기</a></td> -->
-					<td align="left"><a href="../menu/menu.jsp" class="btn byn-secondary"> &laquo; 쇼핑 계속하기</a><td>
+					<td align="left"><a href="/Chicken/menuList.do" class="btn byn-secondary"> &laquo; 쇼핑 계속하기</a><td>
 					<%if(session.getAttribute("cartlist")==null){%>
 					 <td align="right"><a href="/Chicken/menu/menu.jsp" class="btn btn-success" role="button" onclick="javascript:plsorder()">주문하기</a></td>
 						<%}else{

@@ -64,14 +64,12 @@ p { text-align: left; }
 				ArrayList<Integer> OPrice = new ArrayList<>();
 				
 				ArrayList<productDto> cartList = (ArrayList<productDto>) session.getAttribute("cartlist");
-				ArrayList<orderDto> listOforder = (ArrayList<orderDto>) session.getAttribute("listOforder");
+				//ArrayList<orderDto> listOforder = (ArrayList<orderDto>) session.getAttribute("listOforder");
 				if(cartList==null)
 					cartList = new ArrayList<productDto>();
 				
-				int oNum=listOforder.size();
-				int fullsize = listOforder.size()-1;
-				orderDto orderlist = listOforder.get(fullsize);
-				orderlist.setOrderNumber(oNum);
+					
+				int oNum=(int)session.getAttribute("CartNum");
 				
 				
 				for (int i=0; i<cartList.size(); i++) {
@@ -90,7 +88,7 @@ p { text-align: left; }
 			</tr>
 			<% }
 					session.setAttribute("list",cartList.size());
-					session.setAttribute("orderNum",oNum);
+					session.setAttribute("orderNum",oNum+1);
 					session.setAttribute("orderer",uDto.getId());
 					session.setAttribute("orderDate",sf.format(nowTime));
 					session.setAttribute("orderStatus","준비 중");

@@ -49,7 +49,20 @@ h1 { text-align: center; }
 							productDto product = listOfProduct.get(i);
 			%>
 			<div class="col-md-4">
-			<a href="/Chicken/orderButton.do?ProductId=<%=product.getId()%>" ><img src="<%=product.getImgsrc() %>" style="width: 100%"></a>
+					<%if(mem_id == null){
+					logWhere="orderLogin";
+					session.setAttribute("loginWhere", logWhere);
+					session.setAttribute("pdId", product.getId());
+        %>
+
+
+         <a href="/Chicken/login/login.jsp?ProductId=<%=product.getId()%>"onclick="javascript:plslog()" ><div class="w3-dropdown-hover"><img src="<%=product.getImgsrc() %>" style="width: 100%"> 
+         <div class="w3-dropdown-content" style="width:300px">
+          <img src="<%=product.getImgsrc() %>" alt="Norway" style="width:100%"></div>  </div></a>  
+        <!-- 로그인이 된 경우 -->
+        <% } else{ %>
+       <a href="/Chicken/orderButton.do?ProductId=<%=product.getId()%>" ><img src="<%=product.getImgsrc() %>" style="width: 100%"></a>
+        <% } %>
 				<h3><%=product.getName()%></h3>
 				<p><%=product.getDesc()%>
 				<p><%=product.getPrice()%>원

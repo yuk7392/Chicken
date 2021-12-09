@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <meta charset="UTF-8">
 <title>로그인</title>
 
@@ -46,11 +48,8 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
 <a href="../login/register.jsp" role="button"> 회원가입</a></div> 
 <input type="submit" value="로그인"> 
 </form>
-
-
-	
-	
-	
+<div class="container" align="center" id="naver_id_login"></div>
+<br> 	
 <div class = "jumbotron" style="background-color:#FFC81E">
 	<%@ include file="/attachments/bottom.jsp" %>
 	</div>
@@ -63,6 +62,16 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
 	<%@ include file="/attachments/footer.jsp" %>
 	</div>
 	
-	
+	  <script type="text/javascript">
+  	var naver_id_login = new naver_id_login("z4B0D0V0K_LME_QO9S9Z", "http://172.16.52.83:8080/Chicken/login/callback.jsp"); //컴퓨터별 포트번호에 따라 변경해야댐
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("green", 1000,50);
+  	naver_id_login.setDomain("http://172.16.52.83:8080/Chicken/main/Main.jsp"); //컴퓨터별 포트번호에 따라 변경해야댐
+  	naver_id_login.setState(state);
+  	//naver_id_login.setPopup(); 
+  	naver_id_login.init_naver_id_login();
+  </script>
+
+
 </body>
 </html>

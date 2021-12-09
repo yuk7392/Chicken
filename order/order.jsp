@@ -62,7 +62,7 @@ h2{font-weight: bold;}
 				<p> <%out.println(pDto.getDesc()); %>
 					<h4>가격 : <%out.println(pDto.getPrice()); %>원</h4>
 				<div class="updown">
-                    <p><input type="number" name="quantity" size ="3" value="1">      
+                    <p><input type="number" min="1" name="quantity" size ="3" value="1"> 
                 </div>
 					<p>
 					<a href="../order/cart.jsp" class="btn btn-info">장바구니</a>

@@ -65,7 +65,7 @@ span {color : white; background-color: #FF8C0A; font-weight: bold;}
 	
 		<div class="row" align="center">
 			<%
-				for (int i = listOfProducts.size()-1; i >  listOfProducts.size()-5; i--) {
+				for (int i = 3; i >  listOfProducts.size()-5; i--) {
 							productDto product = listOfProducts.get(i);
 			%>
 			<p>
