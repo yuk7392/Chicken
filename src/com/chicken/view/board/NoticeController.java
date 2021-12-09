@@ -21,6 +21,7 @@ public class NoticeController implements Controller{
 	int noticeCount;
 	int buttonCount;
 	int fullsize = 10;
+	int checkSize = 10;
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
@@ -31,19 +32,9 @@ public class NoticeController implements Controller{
 		BoardDAO noticeDAO = new BoardDAO();
 		noticeCount = 	noticeDAO.NoticeCount(boardName);
 		
-			// 내 문의를 눌렀을 경우
-		if(request.getParameter("myService") != null) {
-				//로그인이 되어 있으면 
-			if((String)session.getAttribute("idKey") != null) noticeDAO = new BoardDAO(0,5,"service",(String)session.getAttribute("idKey"));
-			//로그인이 되어있지 않으면 팝업 띄우기
-			else {
-				session.setAttribute("popup", "serviceerror");
-				return "/loginpopup/serviceerror";
-				}
-		}
-		else {
+		
 			noticeDAO = new BoardDAO(noticeCount-4,noticeCount,boardName); 
-		}
+
 
 		
 		ArrayList<noticeTextVo> listOfNotice = new ArrayList<noticeTextVo>(); 
@@ -57,16 +48,22 @@ public class NoticeController implements Controller{
 		 }
 		 if(request.getParameter("myService") != null) {
 				if(10>listOfNotice.size()){
-					fullsize = listOfNotice.size();}
-				session.setAttribute("fullsize", fullsize); 
-				 Collections.reverse(listOfNotice);
+					fullsize = noticeCount;
+					checkSize = fullsize;}
+				session.setAttribute("fullsize", fullsize);
+				 session.setAttribute("checkSize", checkSize); 
 		 }
+		
 		session.setAttribute("buttonCount", buttonCount); 
 		session.setAttribute("listOfNotice", listOfNotice); 
 
 		if(request.getParameter("myService") != null) return "/board/my" + boardName + "page";
 		
 		return "/board/" + boardName + "page";
+	}
+	private int myServiceCount(String attribute) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

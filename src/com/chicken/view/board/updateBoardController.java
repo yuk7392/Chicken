@@ -36,15 +36,35 @@ public class updateBoardController implements Controller {
 		    String writer = request.getParameter("writer");
 		    String content = request.getParameter("content");
 			
-			if(mDao.updateBoardInfo(id,type,title,writer,content)) 
-			{
+		    
+		    if(type.equals("notice")) {
+		    	
+		    	if(mDao.updateBoardInfo(id,type,title,writer,content)) 
+				{
 
-				return"./adminPopup/updateSuccess_board";
+					return"./adminPopup/updateSuccess_board";
 
-			}else{
-				
-				return"./adminPopup/updateFail_board"; 
-			}
+				}else{
+					
+					return"./adminPopup/updateFail_board"; 
+				}
+		    	
+		    	
+		    }else {
+
+		    	if(mDao.updateBoardInfo(id,type,title,writer,content)) 
+				{
+
+					return"./adminPopup/updateSuccess_event";
+
+				}else{
+					
+					return"./adminPopup/updateFail_event"; 
+				}
+		    	
+		    }
+		    
+			
 			
 			
 	

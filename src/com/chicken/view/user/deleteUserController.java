@@ -117,13 +117,7 @@ public class deleteUserController implements Controller {
 		
 		UserDao mDao = new UserDao();	
 		
-		if(request.getParameter("self").equals("self")) {
-			mDao.deleteUserInfo(m1);
-			HttpSession session = request.getSession();
-			session.invalidate();
-			return "./loginpopup/userDeleteSuccess";
-		}
-		
+
 		if(mDao.deleteUserInfo(m1)) 
 		
 			return "./adminPopup/deleteSuccess";

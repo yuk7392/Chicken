@@ -165,9 +165,9 @@ public class ServiceDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String query = "delete from service where service_no='"+id+"'";
-	  	String query1 = "ALTER TABLE notice AUTO_INCREMENT=1;";
+	  	String query1 = "ALTER TABLE service AUTO_INCREMENT=1;";
 		String query2 = "SET @COUNT = 0;";
-		String query3 = "UPDATE notice SET notice_no = @COUNT:=@COUNT+1;";
+		String query3 = "UPDATE service SET service_no = @COUNT:=@COUNT+1;";
 		try {
 
 			con = ConnectUtil.getConnection();

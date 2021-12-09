@@ -55,7 +55,6 @@ public class addOrderController implements Controller {
 			session.removeAttribute("cartlist");
 			String num = Integer.toString(orderNum);
 			oDto = oDao.read_order(num);
-			System.out.print(oDto);
 			session.setAttribute("readDto", oDto);
 			return "orderConfirmation";
     }

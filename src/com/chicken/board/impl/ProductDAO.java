@@ -96,7 +96,6 @@ public class ProductDAO {
 			rs = pstmt.executeQuery(query);
 			rs.next();
 			likeCount = rs.getInt("p_like");
-			System.out.println("좋아요수 불러오기"+likeCount);
 		} catch (SQLException e) {
 
 			e.printStackTrace();

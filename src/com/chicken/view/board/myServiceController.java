@@ -9,24 +9,24 @@ import javax.servlet.http.HttpSession;
 
 import com.chicken.board.noticeTextVo;
 import com.chicken.board.orderDto;
+import com.chicken.board.impl.BoardDAO;
 import com.chicken.board.impl.OrderDAO;
 import com.chicken.view.Controller;
 
 
-public class OrderController implements Controller{
+public class myServiceController implements Controller{
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession(); 
-		OrderDAO OrderDAO = new OrderDAO();
+		BoardDAO noticeDAO = new BoardDAO();
 		int fullSize = 10;
 		int checkSize = 10;
-	
-		
+
 			//로그인이 되어 있으면 
 			if((String)session.getAttribute("idKey") != null)
 				{
-				OrderDAO = new OrderDAO((String)session.getAttribute("idKey"));
+				noticeDAO = new BoardDAO((String)session.getAttribute("idKey"));
 				}
 			//로그인이 되어있지 않으면 팝업 띄우기
 			else {
@@ -35,19 +35,19 @@ public class OrderController implements Controller{
 				}
 			
 		
-		ArrayList<orderDto> listOforder = new ArrayList<orderDto>(); 
-		listOforder = OrderDAO.getAllOrder();
+		ArrayList<noticeTextVo> listOforder = new ArrayList<noticeTextVo>(); 
+		listOforder = noticeDAO.getAllNotice();
 		 if(10>listOforder.size()){
 			 fullSize = listOforder.size();
 			 checkSize = fullSize;
 			}
-		 
+
 		 session.setAttribute("checkSize", checkSize); 
 		 session.setAttribute("fullSize", fullSize); 
-		session.setAttribute("listOforder", listOforder); 
+		session.setAttribute("listOfNotice", listOforder); 
 		
 		
-		return "/board/ordertblpage";
+		return "/board/myservicepage";
 	}
 
 }

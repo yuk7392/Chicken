@@ -108,13 +108,28 @@ public class deleteBoardController implements Controller {
 	
 		String m1 = request.getParameter("id"); 
 		String m2 = request.getParameter("type");
-		
+
 		BoardDAO mDao = new BoardDAO();	
 		
-		if(mDao.deleteBoard(m1,m2)) 
+		if(m2.equals("notice")) {
+			
+			if(mDao.deleteBoard(m1,m2)) 
+				
+				return "./adminPopup/deleteSuccess_board";
+			return "./adminPopup/deleteFail_board";
+			
+			
+		} else {
+			
+if(mDao.deleteBoard(m1,m2)) 
+				
+				return "./adminPopup/deleteSuccess_event";
+			return "./adminPopup/deleteFail_event";
+			
+		}
 		
-			return "./adminPopup/deleteSuccess_board";
-		return "./adminPopup/deleteFail_board";
+		
+	
 	}
 
 }

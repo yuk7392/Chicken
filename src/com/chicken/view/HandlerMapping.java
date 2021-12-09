@@ -23,6 +23,7 @@ public class HandlerMapping {
 		mappings.put("/userManager_update_.do", new updateUserController());	
 		mappings.put("/userupdate.do", new UserUpdateController());	
 		mappings.put("/list.do", new NoticeController());	
+		mappings.put("/myService.do", new myServiceController());	
 		mappings.put("/order.do", new OrderController());
 		mappings.put("/pagebefore.do", new pagebeforeController());	
 		mappings.put("/pageafter.do", new pageafterController());
@@ -54,7 +55,6 @@ public class HandlerMapping {
 		mappings.put("/orderButton.do", new orderButtonController());
 		mappings.put("/addCart.do", new addCartController());
 		mappings.put("/removeCart.do", new removeCartController());
-		
 	}
 
 	public Controller getController(String path) {

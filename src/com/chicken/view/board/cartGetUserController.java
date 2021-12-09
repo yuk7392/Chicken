@@ -32,22 +32,24 @@ public class cartGetUserController implements Controller {
 		//DTO 선언
 		UserDto uDto = new UserDto();
 		//DTO에 DAO의 Userinfo 함수를 이용해 DB 내용 넣기
-		OrderDAO OrderDAO = new OrderDAO();
-		
+		OrderDAO oDao = new OrderDAO();
+		orderDto dto2 = new orderDto();
 		uDto = mDao.Userinfo(mem_id);
-			
+		
+		int num = oDao.getOnum();
 		
 		//requset에 UserDto 객체 저장 
 		HttpSession session = request.getSession();
 
 
-		OrderDAO = new OrderDAO((String)session.getAttribute("idKey"));
-		listOforder = OrderDAO.getAllOrder();
+		oDao = new OrderDAO((String)session.getAttribute("idKey"));
+		listOforder = oDao.getAllOrder();
 		 Collections.reverse(listOforder);
 		session.setAttribute("listOforder", listOforder); 
 		
 		session.setAttribute("mypageview", uDto);
 				
+		session.setAttribute("CartNum", num); 
 		return "order/payment";
 	}
 	

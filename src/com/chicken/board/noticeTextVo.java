@@ -28,6 +28,12 @@ public class noticeTextVo {
 		Addr = addr;
 	}
 	
+	@Override
+	public String toString() {
+		return "noticeTextVo [Number=" + Number + ", Title=" + Title + ", Writer=" + Writer + ", Date=" + Date
+				+ ", Status=" + Status + ", Products=" + Products + ", Addr=" + Addr + ", pageNum=" + pageNum + "]";
+	}
+
 	public noticeTextVo(int number, String title, String writer, String date) {
 		super();
 		Number = number;

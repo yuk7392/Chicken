@@ -26,6 +26,8 @@ public class signupController implements Controller {
 		String addr = request.getParameter("addr");
 		String nickname = request.getParameter("nickname");
 		
+		
+		System.out.println(addr);
 		user.setId(id);  user.setPw(pw);  user.setName(name);
 		user.setPhone(phone); user.setAddr(addr); user.setNickname(nickname);
 		
@@ -35,13 +37,17 @@ public class signupController implements Controller {
 		//DB INSERT
 		int signupCheck = mDao.sign_up(user);
 		
+		System.out.println(signupCheck + " 리턴");
+		
 		//기타오류실패 -1 , 성공 0 , 아이디 중복 1
 		if(signupCheck == 0) {
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("login/signupsuccess.jsp");
 			return "loginpopup/signupsuccess";
 		}
 		else if(signupCheck == 1) {
 			return "loginpopup/signupiderror";
+		}
+		else if(signupCheck == 2) {
+			return "loginpopup/signuptelerror";
 		}
 		else {
 			return "loginpopup/signuperror";

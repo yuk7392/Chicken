@@ -298,5 +298,35 @@ public class OrderDAO {
 		}
 		return true;
 	}
+	public int getOnum() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String query = "select orderNumber from ordertbl order by ordertbl_no desc limit 1 ";
+		ResultSet rs = null;
+		int num=1;
+		try {
+
+			con = ConnectUtil.getConnection();
+			pstmt = con.prepareStatement(query);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+			orderDto dto2 = new orderDto();
+			num = rs.getInt("orderNumber");
+			//dto2.setOrderNumber(num);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+
+		}
+
+		finally {
+			ConnectUtil.close(con, pstmt, null);
+
+		}
+	return num;
+	}
+	
 
 }

@@ -110,9 +110,9 @@ public class deleteServiceController implements Controller {
 		
 		ServiceDAO mDao = new ServiceDAO();	
 		
-		if(mDao.deleteService(m1)) 
-		
+		if(mDao.deleteService(m1))
 			return "./adminPopup/deleteSuccess_service";
+		
 		return "./adminPopup/deleteFail_service";
 	}
 

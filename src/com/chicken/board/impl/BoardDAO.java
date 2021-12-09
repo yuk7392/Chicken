@@ -16,6 +16,7 @@ import com.chicken.board.boardDto;
 import com.chicken.board.eventDto;
 import com.chicken.board.noticeDto;
 import com.chicken.board.noticeTextVo;
+import com.chicken.board.orderDto;
 import com.chicken.board.pageNumVo;
 import com.chicken.common.ConnectUtil;
 import com.oreilly.servlet.MultipartRequest;
@@ -39,7 +40,30 @@ public class BoardDAO {
 		}
 		return bDao;
 	}
+	
+	public BoardDAO(String id) { // pageNum = 보여줄 페이지가 몇페이지인지
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from service where service_Writer = '" + id + "' order by service_no desc;";
+		try {
+			con = ConnectUtil.getConnection();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+				while (rs.next()) {
+					noticeTextVo nt = new noticeTextVo(rs.getInt("service_no"), rs.getString("service_title"),
+							rs.getString("service_Writer"), rs.getString("service_date"),
+							rs.getString("service_status"));
+					listOfNotice.add(nt);
+					
+					}
+		}
 
+		catch (Exception ex) {
+			System.out.println("Exception" + ex);
+		} finally {
+			ConnectUtil.close(con, pstmt, null);
+		}
+	}
 	// 게시판 받아오기
 	public BoardDAO(int startNum1, int endNum1, String board) { // pageNum = 보여줄 페이지가 몇페이지인지
 		PreparedStatement pstmt = null;
@@ -80,14 +104,11 @@ public class BoardDAO {
 	}
 
 	// 내 문의 받아오기
-	public BoardDAO(int startNum1, int endNum1, String board, String idKey) { // pageNum = 보여줄 페이지가 몇페이지인지
+	public BoardDAO(String board, String idKey) { // pageNum = 보여줄 페이지가 몇페이지인지
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		pageNumVo Opnv = null;
 		String sql = "select * from service where service_Writer = '" + idKey + "' order by service_no desc;";
 
-		int startNum = startNum1;
-		int endNum = endNum1;
 
 		try {
 			con = ConnectUtil.getConnection();
@@ -108,6 +129,7 @@ public class BoardDAO {
 			ConnectUtil.close(con, pstmt, null);
 		}
 	}
+	
 
 	// 내 주문받아오기
 	public BoardDAO(int startNum1, int endNum1, String board, String idKey, int i) { // pageNum = 보여줄 페이지가 몇페이지인지
@@ -753,7 +775,20 @@ public class BoardDAO {
 			con = ConnectUtil.getConnection();
 			String sql = "insert into service (service_title, service_Writer, service_date, service_content, service_file) VALUES "
 					+ "(?,?,NOW(),?,?);";
+			String query1 = "ALTER TABLE service AUTO_INCREMENT=1;";
+			String query2 = "SET @COUNT = 0;";
+			String query3 = "UPDATE service SET service_no = @COUNT:=@COUNT+1;";
 
+	
+	
+
+			pstmt = con.prepareStatement(query1);
+			pstmt.executeUpdate();
+			pstmt = con.prepareStatement(query2);
+			pstmt.executeUpdate();
+			pstmt = con.prepareStatement(query3);
+			pstmt.executeUpdate();
+			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, multi.getParameter("write_title"));
 			pstmt.setString(2, id);

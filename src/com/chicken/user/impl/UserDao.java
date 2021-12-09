@@ -67,6 +67,7 @@ public class UserDao {
         // ======== 아이디 중복 체크 ============ 
         ResultSet rs = null;
         boolean idCon = false;
+        boolean telCon = false;
         try {
         	con = ConnectUtil.getConnection();
             String strQuery = "select user_id from user where user_id = ?";
@@ -84,6 +85,25 @@ public class UserDao {
         	ConnectUtil.close(con, pstmt, null);
         	return 1;
         	}
+       // ======== 전화번호 중복 체크 ============ 
+        try {
+            String strQuery = "select user_tel from user where user_tel = ?";
+            
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, user.getPhone());
+            rs = pstmt.executeQuery();
+            telCon = rs.next();
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+        }
+        // 중복이면 2 리턴
+        if(telCon) {
+        	ConnectUtil.close(con, pstmt, null);
+        	System.out.println("asdf");
+        	return 2;
+        	}
+        
         
         // insert
         try {

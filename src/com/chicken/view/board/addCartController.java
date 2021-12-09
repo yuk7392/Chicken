@@ -46,7 +46,6 @@ public class addCartController implements Controller{
 				break;
 			}
 		}
-		System.out.println("3"+goodsList);
 		ArrayList<productDto> list = (ArrayList<productDto>) session.getAttribute("cartlist");
 		if(list==null){
 			list=new ArrayList<productDto>();
